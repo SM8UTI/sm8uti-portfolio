@@ -15,9 +15,9 @@ const Loader = ({
 
   useGSAP(
     () => {
-      tl.from("#LoaderContent > h1", {
-        opacity: 0,
-        y: 100,
+      tl.to("h1", {
+        opacity: 1,
+        y: 0,
         duration: 1,
         onComplete: anime,
         ease: "power3.out",
@@ -129,7 +129,9 @@ const Loader = ({
         className="w-full h-full grid place-content-center overflow-hidden absolute top-0 left-0 z-50 bg-mianBlack-500 text-white"
       >
         <div className="flex flex-col items-center" id="LoaderContent">
-          <h1 className="font-secondary text-[4rem] md:text-[5rem]">SM8UTI</h1>
+          <h1 className="font-secondary text-[4rem] md:text-[5rem] opacity-0 -translate-y-[100px]">
+            SM8UTI
+          </h1>
           <div
             id="text-wrapper"
             className="font-primary-regular uppercase leading-[0] text-center w-full"

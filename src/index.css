@@ -24,18 +24,13 @@ html.lenis {
 
 @font-face {
   font-family: "samarkan";
-  src: url("./assets/Fonts/Samarkan.TTF");
-}
-@font-face {
-  font-family: "samarkan";
-  src: url("./assets/Fonts/Samarkan.TTF");
+  src: url("/assets/fonts/Samarkan.woff2");
 }
 @font-face {
   font-family: "almarena-display-regular";
-  src: url("./assets/Fonts/almarena-display-regular.ttf");
+  src: url("/assets/fonts/almarena-display-regular.woff2");
 }
-
 @font-face {
   font-family: "almarena-display-bold";
-  src: url("./assets/Fonts/almarena-display-bold.ttf");
+  src: url("/assets/fonts/almarena-display-bold.woff2");
 }
