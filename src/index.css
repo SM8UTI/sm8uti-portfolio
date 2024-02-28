@@ -4,6 +4,12 @@
 
 html {
   background-color: #050f0d;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 html.lenis {

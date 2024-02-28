@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import LocomotiveScroll from "locomotive-scroll";
-import { Home, Loader } from "./_root";
+import { Loader } from "./_root";
 import { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 
 const App = () => {
   const locomotiveScroll = new LocomotiveScroll();
@@ -15,8 +16,8 @@ const App = () => {
   }, []);
 
   return (
-    <main className="bg-mainBlack-500">
-      {loading ? <Loader setLoading={setLoading} /> : <Home />}
+    <main className="bg-mainBlack-500 text-white font-primary-regular selection:bg-primary-500 selection:text-mianBlack-500">
+      {loading ? <Loader setLoading={setLoading} /> : <Outlet />}
     </main>
   );
 };

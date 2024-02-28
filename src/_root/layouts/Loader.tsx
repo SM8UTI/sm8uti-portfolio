@@ -15,15 +15,22 @@ const Loader = ({
 
   useGSAP(
     () => {
-      tl.to("h1", {
+      tl.to(".SpanTag span", {
         opacity: 1,
-        y: 0,
-        duration: 1,
-        onComplete: anime,
-        ease: "power3.out",
-      }).from("#text-wrapper", {
-        opacity: 0,
-      });
+        scale: 1,
+        stagger: 0.2,
+        duration: 0.8,
+      })
+        .to("h1", {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          onComplete: anime,
+          ease: "power3.out",
+        })
+        .from("#text-wrapper", {
+          opacity: 0,
+        });
     },
     { scope: containerRef }
   );
@@ -55,16 +62,26 @@ const Loader = ({
     });
 
     tl.to(
-      "#LoaderContent > h1",
+      "h1",
       {
         opacity: 0,
         y: -100,
         stagger: 0.3,
-        duration: 1,
+        duration: 0.5,
         ease: "power3.out",
       },
       "a"
     )
+      .to(
+        ".SpanTag span",
+        {
+          opacity: 0,
+          scale: 0,
+          stagger: 0.2,
+          duration: 0.5,
+        },
+        "a"
+      )
       .to("#text-wrapper", {
         opacity: 0,
       })
@@ -129,33 +146,38 @@ const Loader = ({
         className="w-full h-full grid place-content-center overflow-hidden absolute top-0 left-0 z-50 bg-mianBlack-500 text-white"
       >
         <div className="flex flex-col items-center" id="LoaderContent">
-          <h1 className="font-secondary text-[4rem] md:text-[5rem] opacity-0 -translate-y-[100px]">
-            SM8UTI
-          </h1>
+          <div className="w-full h-full overflow-hidden">
+            <h1 className="font-secondary text-[4rem] md:text-[5rem] opacity-0 -translate-y-[100px]">
+              SM8UTI
+            </h1>
+          </div>
           <div
             id="text-wrapper"
             className="font-primary-regular uppercase leading-[0] text-center w-full"
           >
-            {[
-              "SM8UTI",
-              "UI/UX Design",
-              "Web Design",
-              "Development",
-              "photography",
-            ].map((text, index) => (
-              <p
-                key={index}
-                className="text-[.8rem] md:text-[1rem]  m-0 block font-primary-bold text-accent-500 text-center sm:tracking-[2px]"
-                ref={(el) => (titlesRef.current[index] = el)}
-              >
-                {text}
-              </p>
-            ))}
+            {["SM8UTI", "UI/UX Design", "Web Design", "Development"].map(
+              (text, index) => (
+                <p
+                  key={index}
+                  className="text-[.8rem] md:text-[1rem]  m-0 block font-primary-bold text-accent-500 text-center sm:tracking-[2px]"
+                  ref={(el) => (titlesRef.current[index] = el)}
+                >
+                  {text}
+                </p>
+              )
+            )}
           </div>
         </div>
-        <span className="text-[.5rem] md:text-sm absolute bottom-6 right-6 uppercase font-primary-bold">
-          Loading...
-        </span>
+        <div className="SpanTag absolute bottom-6 right-6 ">
+          <span className="text-[.5rem] md:text-sm uppercase font-primary-bold opacity-0 scale-0">
+            Loading...
+          </span>
+        </div>
+        <div className="SpanTag absolute top-6 left-6">
+          <span className="text-[.5rem] md:text-sm  uppercase font-primary-bold opacity-0 scale-0">
+            PORTFOLIO @{new Date().getFullYear()}
+          </span>
+        </div>
         <div className="absolute top-24 left-20 w-36 h-36 bg-accent-500 blur-[220px] md:blur-[200px]"></div>
         <div className="absolute bottom-14 right-20 w-32 h-32 bg-accent-100 blur-[230px] md:blur-[200px]"></div>
       </div>
